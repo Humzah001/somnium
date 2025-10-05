@@ -374,13 +374,13 @@ export default function FounderLetter() {
       </section>
 
       {/* Footer */}
-      <FooterNav 
+      {/* <FooterNav 
         variant="founder-letter"
         previousHref="/technology"
         previousText="Technology"
         nextHref="/problem-statement"
         nextText="Problem Statement"
-      />
+      /> */}
       <Footer 
         variant="founder-letter"
       />

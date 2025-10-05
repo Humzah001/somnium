@@ -374,13 +374,13 @@ export default function Technology() {
       </section>
 
       {/* Footer */}
-      <FooterNav 
+      {/* <FooterNav 
         variant="technology"
         previousHref="/problem-statement"
         previousText="Problem Statement"
         nextHref="/founder-letter"
         nextText="Founder Letter"
-      />
+      /> */}
       <Footer 
         variant="technology"
       />
