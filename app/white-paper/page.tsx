@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Footer from '../components/Footer';
+import FooterNav from '../components/FooterNav';
 
 export default function WhitePaper() {
   const [activeSection, setActiveSection] = useState('abstract');
@@ -13,7 +14,7 @@ export default function WhitePaper() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const blueSectionHeight = 600; // Approximate height of the blue section
+      const blueSectionHeight = 600;
       const documentHeight = document.documentElement.scrollHeight;
       const windowHeight = window.innerHeight;
       
@@ -364,41 +365,16 @@ export default function WhitePaper() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-b from-blue-600 via-blue-500 to-blue-400 text-white py-8 relative overflow-hidden">
-        {/* Noise/Texture overlay */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")`
-        }}></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            {/* Left - Logo */}
-            <div className="flex items-center">
-              <div className="w-8 h-8 mr-3 rounded-full overflow-hidden bg-white/10 p-1">
-                <Image
-                  src="/logo.jpg"
-                  alt="Somnium Biolabs Logo"
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              <span className="text-lg font-semibold font-exo2">Somnium Biolabs</span>
-            </div>
-            
-            {/* Center - Links */}
-            <div className="flex items-center space-x-6">
-              <a href="#" className="text-white/80 hover:text-white text-sm">Terms of Service</a>
-              <a href="#" className="text-white/80 hover:text-white text-sm">Privacy Policy</a>
-              <a href="#" className="text-white/80 hover:text-white text-sm">Cookie Policy</a>
-            </div>
-            
-            {/* Right - Copyright */}
-            <div className="text-sm text-white/80">
-              © 2025 Until Labs. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+      <FooterNav 
+        variant="white-paper"
+        previousHref="/problem-statement"
+        previousText="Problem Statement"
+        nextHref="/founder-letter"
+        nextText="Founder Letter"
+      />
+      <Footer 
+        variant="white-paper"
+      />
 
       {/* Growing Gradient Line - Shows when scrolling */}
       {showBottomBar && !hideBottomBar && (

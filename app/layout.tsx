@@ -12,6 +12,9 @@ const exo2 = Exo_2({
 export const metadata: Metadata = {
   title: "Somnium Biolabs",
   description: "Innovative technology solutions for the future",
+  icons: {
+    icon: '/favicon-16x16.png',
+  },
 };
 
 export default function RootLayout({
