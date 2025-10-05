@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Footer from './components/Footer';
+import { LiquidButton } from './components/ui/liquid-glass-button';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,7 +41,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden animate-fadeIn">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -59,23 +60,25 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
         
         {/* Main content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="space-y-8">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+        <div className="relative z-10 text-center px-3 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <div className="space-y-8 animate-slideUp">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 animate-fadeInUp">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed animate-fadeInUp animation-delay-200">
               {slides[currentSlide].subtitle}
             </p>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-8 sm:mt-12">
-              <button className="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium hover:bg-gray-100 transition-colors duration-200 w-full sm:w-auto">
-                Learn More
-              </button>
-              <button className="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium hover:bg-white hover:text-black transition-colors duration-200 w-full sm:w-auto">
-                Get Started
-              </button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-8 sm:mt-12 animate-fadeInUp animation-delay-400">
+                <LiquidButton 
+                  variant="landing"
+                  size="lg"
+                  className="w-full sm:w-auto cursor-pointer"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Contact Us
+                </LiquidButton>
             </div>
             
             {/* Slide indicators */}
@@ -98,20 +101,20 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* A Word on The Tech Section */}
-      <section className="relative py-20 lg:py-32" style={{ backgroundColor: '#F8F2EB' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 animate-fadeInUp">
               A Word on <span className="text-gray-800">The Tech</span>
             </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed animate-fadeInUp animation-delay-200">
               Our cutting-edge AI infrastructure combines the latest advances in machine learning with deep domain expertise in plant biology, creating powerful tools for agricultural innovation.
             </p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* Foundation Models Card */}
-            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center animate-fadeInUp animation-delay-300 hover:scale-105 transition-transform duration-300">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -124,7 +127,7 @@ export default function Home() {
             </div>
 
             {/* Multi-omics Integration Card */}
-            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center animate-fadeInUp animation-delay-400 hover:scale-105 transition-transform duration-300">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
@@ -137,7 +140,7 @@ export default function Home() {
             </div>
 
             {/* Real-time Processing Card */}
-            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center animate-fadeInUp animation-delay-500 hover:scale-105 transition-transform duration-300">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -150,7 +153,7 @@ export default function Home() {
             </div>
 
             {/* Precision Predictions Card */}
-            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center animate-fadeInUp animation-delay-600 hover:scale-105 transition-transform duration-300">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-12 h-12 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
@@ -169,21 +172,23 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* Virtual Human Section */}
-        <section className="relative py-20 lg:py-32" style={{ backgroundColor: '#F8F2EB' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
               Our virtual human, <span className="text-gray-700">ñuma</span>, is leveraged to enhance your product safety and performance
             </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Medical Devices */}
-            <div className="text-center">
+            <div className="text-center animate-fadeInUp animation-delay-200 hover:scale-105 transition-transform duration-300">
               <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden bg-white/50 flex items-center justify-center">
-                <svg className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
+                <img 
+                  src="/health.webp" 
+                  alt="Medical Devices" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4">Medical Devices</h3>
               <p className="text-gray-700 text-base sm:text-lg">
@@ -192,24 +197,28 @@ export default function Home() {
             </div>
 
             {/* Defense */}
-            <div className="text-center">
+            <div className="text-center animate-fadeInUp animation-delay-400 hover:scale-105 transition-transform duration-300">
               <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden bg-white/50 flex items-center justify-center">
-                <svg className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
+                <img 
+                  src="/defense.webp" 
+                  alt="Defense" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4">Defense</h3>
               <p className="text-gray-700 text-base sm:text-lg">
                 Improved military personnel protection via gear optimization
               </p>
             </div>
-
+            
             {/* Sport */}
-            <div className="text-center">
+            <div className="text-center animate-fadeInUp animation-delay-600 hover:scale-105 transition-transform duration-300">
               <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden bg-white/50 flex items-center justify-center">
-                <svg className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
+                <img 
+                  src="/sport.webp" 
+                  alt="Sport" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4">Sport</h3>
               <p className="text-gray-700 text-base sm:text-lg">
@@ -224,17 +233,17 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* Design Optimization Section */}
-      <section className="relative py-20 lg:py-32" style={{ backgroundColor: '#F8F2EB' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
               Design Optimisation, Verification and Performance Promotion
             </h2>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 lg:gap-8">
             {/* Benefit 1 */}
-            <div className="text-center">
+            <div className="text-center animate-fadeInUp animation-delay-200 hover:scale-105 transition-transform duration-300">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -315,14 +324,14 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
             
       {/* Contact Section */}
-       <div className="rounded-xl p-6 sm:p-8 text-center mx-4 sm:mx-0" style={{ backgroundColor: '#F8F2EB' }}>
-         <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+       <div id="contact" className="rounded-xl p-6 sm:p-8 text-center mx-4 sm:mx-0 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+         <h6 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4 animate-fadeInUp">
            Have something to say?
-         </h3>
-         <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">
+         </h6>
+         <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base animate-fadeInUp animation-delay-200">
            Email us at <a href="mailto:chintan@somniumbio.com" className="text-blue-600 hover:text-blue-700 font-medium break-all sm:break-normal">chintan@somniumbio.com</a>
          </p>
-       </div>
+      </div>
 
       {/* Section Divider */}
       <div className="border-t border-gray-400"></div>

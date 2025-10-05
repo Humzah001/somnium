@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Footer from '../components/Footer';
 import FooterNav from '../components/FooterNav';
+import Navigation from '../components/Navigation';
+import { LiquidButton } from '../components/ui/liquid-glass-button';
 
 export default function FounderLetter() {
   const [activeSection, setActiveSection] = useState('abstract');
@@ -80,6 +82,9 @@ export default function FounderLetter() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Header Section - Founder Letter */}
       <section className="py-20 text-white relative overflow-hidden">
         {/* Background image */}
@@ -95,8 +100,8 @@ export default function FounderLetter() {
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")`
         }}></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="mb-4">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
+          {/* <div className="mb-4">
             <span className="text-sm font-medium text-blue-100">
               Background for Founder Letter
             </span>
@@ -106,19 +111,19 @@ export default function FounderLetter() {
           </div>
           <div className="text-sm text-blue-200 mb-6">
             The Until Team by The Until Team
-          </div>
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+          </div> */}
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 mt-20">
             Founder Letter
           </h1>
-          <div className="flex justify-center gap-4 mb-6">
-            <span className="text-sm font-medium text-blue-100 bg-blue-500/30 px-3 py-1 rounded-full">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
+            <LiquidButton variant="founder-letter" size="sm">
               Company
-            </span>
-            <span className="text-sm font-medium text-blue-100 bg-blue-500/30 px-3 py-1 rounded-full">
+            </LiquidButton>
+            <LiquidButton variant="founder-letter" size="sm">
               Vision
-            </span>
+            </LiquidButton>
           </div>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             A message from our founder on mission, direction, and what's next
           </p>
         </div>
@@ -129,7 +134,7 @@ export default function FounderLetter() {
         <div className="pb-20">
           <div className="flex relative">
             {/* Left Sidebar Navigation - Sticky to white content area */}
-            <div className="sticky top-24 left-0 h-fit z-40 pl-8 mr-8 pt-8">
+            <div className="sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
               <nav className="space-y-3">
                 {sections.map((section) => (
                   <button
@@ -156,7 +161,7 @@ export default function FounderLetter() {
             </div>
 
       {/* Main Content */}
-            <div className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="flex-1 max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
             <div className="prose prose-lg max-w-none">
                 
                 {/* Abstract */}

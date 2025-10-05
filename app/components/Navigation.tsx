@@ -3,12 +3,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const Navigation = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     // { name: 'White Paper I', href: '/white-paper' },
@@ -24,14 +25,25 @@ const Navigation = () => {
       setIsScrolled(scrollPosition > blueSectionHeight);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-2 sm:mx-4 mt-2 sm:mt-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 mt-2 sm:mt-4">
       <div className="max-w-7xl mx-auto">
-        <div className="backdrop-blur-xl rounded-full px-2 sm:px-6 py-2 sm:py-3 shadow-lg border border-white/20 bg-gradient-to-r from-white/20 to-gray-300/20 transition-all duration-300">
+        <div ref={mobileMenuRef} className="backdrop-blur-xl rounded-xl px-2 sm:px-6 py-2 sm:py-3 shadow-lg border border-white/20 bg-gradient-to-r from-white/20 to-gray-300/20 transition-all duration-300 overflow-hidden">
           <div className="flex justify-between items-center">
             {/* Left side - Logo/Brand */}
             <div className="flex items-center">
@@ -77,13 +89,13 @@ const Navigation = () => {
 
             {/* Right side - CTA Button (Desktop) */}
             <div className="hidden md:flex items-center">
-              <button className={`px-4 xl:px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+              <a href="/#contact" className={`px-4 xl:px-6 py-2 rounded-full text-sm font-medium transition-colors inline-block ${
                 isScrolled
                   ? 'bg-gray-900 text-white hover:bg-black'
                   : 'bg-white text-black hover:bg-gray-100'
               }`}>
                 Join Us
-              </button>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -97,45 +109,55 @@ const Navigation = () => {
                     : 'text-white/70 hover:text-white'
                 }`}
               >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                {isMobileMenuOpen ? (
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pt-4 border-t border-white/20">
-              <div className="flex flex-col space-y-3">
+          <div className={`md:hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4 pt-4 border-t border-white/20' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="flex flex-col space-y-2 pr-2">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm font-medium transition-colors duration-200 px-3 py-2 rounded-lg ${
+                    className={`text-sm font-medium transition-colors duration-200 px-4 py-3 rounded-md border-l-4 whitespace-nowrap overflow-hidden text-ellipsis ${
                       pathname === item.href
                         ? isScrolled
-                          ? 'text-gray-900 bg-gray-200'
-                          : 'text-white bg-white/20'
+                          ? 'text-gray-900 bg-gray-100 border-gray-400'
+                          : 'text-white bg-white/15 border-white/40'
                         : isScrolled
-                          ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
-                          : 'text-white/70 hover:text-white hover:bg-white/10'
+                          ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-50 border-transparent hover:border-gray-300'
+                          : 'text-white/70 hover:text-white hover:bg-white/10 border-transparent hover:border-white/20'
                     }`}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <button className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
-                  isScrolled
-                    ? 'bg-gray-900 text-white hover:bg-black'
-                    : 'bg-white text-black hover:bg-gray-100'
-                }`}>
+                <a 
+                  href="/#contact" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`px-4 py-3 rounded-md text-sm font-medium transition-colors text-left block border-l-4 ${
+                    isScrolled
+                      ? 'bg-gray-900 text-white hover:bg-black border-gray-600'
+                      : 'bg-white text-black hover:bg-gray-100 border-gray-300'
+                  }`}
+                >
                   Join Us
-                </button>
+                </a>
               </div>
             </div>
-          )}
         </div>
       </div>
     </nav>

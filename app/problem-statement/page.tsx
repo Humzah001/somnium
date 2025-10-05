@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Footer from '../components/Footer';
 import FooterNav from '../components/FooterNav';
+import Navigation from '../components/Navigation';
+import { LiquidButton } from '../components/ui/liquid-glass-button';
 
 export default function ProblemStatement() {
   const [activeSection, setActiveSection] = useState('organ-donation');
@@ -82,6 +84,9 @@ export default function ProblemStatement() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Header Section - Image Background */}
       <section className="py-20 text-white relative overflow-hidden">
         {/* Background image */}
@@ -98,21 +103,21 @@ export default function ProblemStatement() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")`
         }}></div>
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <span className="text-sm font-medium text-red-100">
               JUNE 3, 2024 • by The Until Team
             </span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-6xl font-bold mb-6">
+          </div> */}
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 mt-20">
             Problem Statement and Roadmap
           </h1>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
-            <span className="text-sm font-medium text-red-100 bg-red-700/30 px-3 py-1 rounded-full">
+            <LiquidButton variant="problem-statement" size="sm">
               Engineering
-            </span>
-            <span className="text-sm font-medium text-red-100 bg-red-700/30 px-3 py-1 rounded-full">
+            </LiquidButton>
+            <LiquidButton variant="problem-statement" size="sm">
               Research
-            </span>
+            </LiquidButton>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-red-100 max-w-3xl mx-auto leading-relaxed">
             How we're building a pause button for biology
@@ -363,13 +368,13 @@ export default function ProblemStatement() {
       </section>
 
       {/* Footer */}
-      <FooterNav 
+      {/* <FooterNav 
         variant="problem-statement"
         previousHref="/founder-letter"
         previousText="Founder Letter"
         nextHref="/white-paper"
         nextText="Milestone White Paper I"
-      />
+      /> */}
       <Footer 
         variant="problem-statement"
       />

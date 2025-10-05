@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Footer from '../components/Footer';
 import FooterNav from '../components/FooterNav';
+import Navigation from '../components/Navigation';
+import { LiquidButton } from '../components/ui/liquid-glass-button';
 
 export default function Technology() {
   const [activeSection, setActiveSection] = useState('abstract');
@@ -80,6 +82,9 @@ export default function Technology() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Header Section - Image background with blur */}
       <section className="py-20 text-white relative overflow-hidden">
         {/* Background image */}
@@ -96,27 +101,16 @@ export default function Technology() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")`
         }}></div>
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="mb-4">
-            <span className="text-sm font-medium text-blue-100">
-              Background for Technology Overview
-            </span>
-          </div>
-          <div className="text-sm text-blue-200 mb-6">
-            September 22, 2025
-          </div>
-          <div className="text-sm text-blue-200 mb-6">
-            The Until Team by The Until Team
-          </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 mt-20">
             Technology Overview
           </h1>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
-            <span className="text-sm font-medium text-blue-100 bg-blue-500/30 px-3 py-1 rounded-full">
+            <LiquidButton variant="technology" size="sm">
               Progress Update
-            </span>
-            <span className="text-sm font-medium text-blue-100 bg-blue-500/30 px-3 py-1 rounded-full">
+            </LiquidButton>
+            <LiquidButton variant="technology" size="sm">
               Neuroscience
-            </span>
+            </LiquidButton>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Recovery of electrical activity from cryopreserved and rewarmed acutely resected rodent neural tissue
