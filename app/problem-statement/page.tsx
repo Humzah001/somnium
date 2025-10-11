@@ -16,18 +16,15 @@ export default function ProblemStatement() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const blueSectionHeight = 600; // Approximate height of the blue section
+      const blueSectionHeight = 600;
       const documentHeight = document.documentElement.scrollHeight;
       const windowHeight = window.innerHeight;
       
-      // Show bottom bar when scrolling past the blue section
       setShowBottomBar(scrollPosition > blueSectionHeight);
       
-      // Hide bottom bar when approaching footer (around 80% scroll or when near footer)
-      const footerThreshold = documentHeight - windowHeight - 200; // 200px before footer
+      const footerThreshold = documentHeight - windowHeight - 200;
       setHideBottomBar(scrollPosition >= footerThreshold);
       
-      // Calculate scroll progress for the gradient line (only in white content area, before footer)
       if (scrollPosition > blueSectionHeight && scrollPosition < footerThreshold) {
         const contentScrollPosition = scrollPosition - blueSectionHeight;
         const contentHeight = footerThreshold - blueSectionHeight;
@@ -37,13 +34,11 @@ export default function ProblemStatement() {
         setScrollProgress(0);
       }
       
-      // Reset to first section when scrolling back up to the top
       if (scrollPosition <= blueSectionHeight) {
         setActiveSection('organ-donation');
         return;
       }
       
-      // Only track sections when we're in the white content area
       if (scrollPosition > blueSectionHeight - 100) {
         for (const [sectionId, element] of Object.entries(sectionsRef.current)) {
           if (element) {
@@ -84,30 +79,19 @@ export default function ProblemStatement() {
 
   return (
     <div className="min-h-screen bg-stone-50">
-      {/* Navigation */}
       <Navigation />
       
-      {/* Header Section - Image Background */}
       <section className="py-20 text-white relative overflow-hidden">
-        {/* Background image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/r1.jpg)' }}
         ></div>
-        {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/30"></div>
-        {/* Blur overlay */}
         <div className="absolute inset-0 backdrop-blur-sm bg-white/10"></div>
-        {/* Noise/Texture overlay */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")`
         }}></div>
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
-          {/* <div className="mb-4">
-            <span className="text-sm font-medium text-red-100">
-              JUNE 3, 2024 • by The Until Team
-            </span>
-          </div> */}
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 mt-20">
             Problem Statement and Roadmap
           </h1>
@@ -125,11 +109,9 @@ export default function ProblemStatement() {
         </div>
       </section>
 
-      {/* Scrollable Main Content */}
       <section className="relative bg-stone-50">
         <div className="pb-20">
           <div className="flex relative">
-            {/* Left Sidebar Navigation - Sticky to white content area */}
             <div className="sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
               <nav className="space-y-3">
                 {sections.map((section) => (
@@ -142,7 +124,6 @@ export default function ProblemStatement() {
                         : 'text-gray-600 hover:text-gray-900 text-sm'
                     }`}
                   >
-                    {/* Horizontal line before each item */}
                     <div className={`absolute left-0 top-1/2 transform -translate-y-1/2 -ml-8 w-4 h-px transition-colors duration-300 ${
                       activeSection === section.id ? 'bg-gray-900' : 'bg-gray-400'
                     }`}></div>
@@ -156,18 +137,15 @@ export default function ProblemStatement() {
               </nav>
             </div>
 
-            {/* Main Content */}
             <div className="flex-1 max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
               <div className="prose prose-lg max-w-none">
                 
-                {/* Introduction */}
                 <div className="mb-12">
                   <p className="text-gray-700 leading-relaxed text-lg">
                     We're building a pause button for biology: a technology which halts molecular motion across long timescales and restarts it on demand. We will use this to help patients in two time-sensitive areas of medicine.
                   </p>
                 </div>
 
-                {/* Organ Donation */}
                 <div 
                   ref={(el) => { sectionsRef.current['organ-donation'] = el; }}
                   className="mb-12"
@@ -181,7 +159,6 @@ export default function ProblemStatement() {
                   </p>
                 </div>
 
-                {/* Medical Hibernation */}
                 <div 
                   ref={(el) => { sectionsRef.current['medical-hibernation'] = el; }}
                   className="mb-12"
@@ -195,7 +172,6 @@ export default function ProblemStatement() {
                   </p>
                 </div>
 
-                {/* The Core Technical Challenge */}
                 <div 
                   ref={(el) => { sectionsRef.current['core-challenge'] = el; }}
                   className="mb-12"
@@ -215,7 +191,6 @@ export default function ProblemStatement() {
                   </p>
                 </div>
 
-                {/* Roadmap */}
                 <div 
                   ref={(el) => { sectionsRef.current.roadmap = el; }}
                   className="mb-12"
@@ -254,7 +229,6 @@ export default function ProblemStatement() {
                   </div>
                 </div>
 
-                {/* Molecular Discovery */}
                 <div 
                   ref={(el) => { sectionsRef.current['molecular-discovery'] = el; }}
                   className="mb-12"
@@ -276,7 +250,6 @@ export default function ProblemStatement() {
                   </div>
                 </div>
 
-                {/* Surgical Protocols */}
                 <div 
                   ref={(el) => { sectionsRef.current['surgical-protocols'] = el; }}
                   className="mb-12"
@@ -298,7 +271,6 @@ export default function ProblemStatement() {
                   </div>
                 </div>
 
-                {/* Engineering Systems */}
                 <div 
                   ref={(el) => { sectionsRef.current['engineering-systems'] = el; }}
                   className="mb-12"
@@ -320,7 +292,6 @@ export default function ProblemStatement() {
                   </div>
                 </div>
 
-                {/* Citations */}
                 <div 
                   ref={(el) => { sectionsRef.current.citations = el; }}
                   className="mb-12"
@@ -352,7 +323,6 @@ export default function ProblemStatement() {
                   </div>
                 </div>
 
-                {/* Contact Section */}
                 <div className="bg-gradient-to-r from-stone-100 to-stone-200 rounded-xl p-8 text-center">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">
                     Curious to learn more about our approach?
@@ -367,22 +337,10 @@ export default function ProblemStatement() {
         </div>
       </section>
 
-      {/* Footer */}
-      {/* <FooterNav 
-        variant="problem-statement"
-        previousHref="/founder-letter"
-        previousText="Founder Letter"
-        nextHref="/white-paper"
-        nextText="Milestone White Paper I"
-      /> */}
-      <Footer 
-        variant="problem-statement"
-      />
+      <Footer variant="problem-statement" />
 
-      {/* Growing Gradient Line - Shows when scrolling */}
       {showBottomBar && !hideBottomBar && (
         <div className="fixed bottom-0 left-0 right-0 z-50">
-          {/* Growing gradient line based on scroll progress */}
           <div className="px-12 py-4 bg-gradient-to-r from-white/10 via-gray-100/20 to-white/10">
             <div className="h-2 bg-gray-200/50 rounded-full relative overflow-hidden">
               <div 
@@ -390,14 +348,14 @@ export default function ProblemStatement() {
                 style={{ 
                   width: `${scrollProgress}%`,
                   background: scrollProgress < 20 
-                    ? 'linear-gradient(to right, #fca5a5, #ef4444)' // Light Red to Red
+                    ? 'linear-gradient(to right, #fca5a5, #ef4444)'
                     : scrollProgress < 40 
-                    ? 'linear-gradient(to right, #fca5a5, #f97316)' // Light Red to Orange
+                    ? 'linear-gradient(to right, #fca5a5, #f97316)'
                     : scrollProgress < 60 
-                    ? 'linear-gradient(to right, #fca5a5, #f97316, #fde047)' // Light Red to Orange to Light Yellow
+                    ? 'linear-gradient(to right, #fca5a5, #f97316, #fde047)'
                     : scrollProgress < 80 
-                    ? 'linear-gradient(to right, #fca5a5, #f97316, #fde047, #86efac)' // Light Red to Orange to Light Yellow to Light Green
-                    : 'linear-gradient(to right, #fca5a5, #f97316, #fde047, #86efac, #93c5fd)' // Full gradient with lighter colors
+                    ? 'linear-gradient(to right, #fca5a5, #f97316, #fde047, #86efac)'
+                    : 'linear-gradient(to right, #fca5a5, #f97316, #fde047, #86efac, #93c5fd)'
                 }}
               ></div>
             </div>

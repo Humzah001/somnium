@@ -15,7 +15,7 @@ const Navigation = () => {
     // { name: 'White Paper I', href: '/white-paper' },
     { name: 'Technology', href: '/technology' },
     { name: 'Founder Letter', href: '/founder-letter' },
-    { name: 'Problem Statement', href: '/problem-statement' },
+    // { name: 'Problem Statement', href: '/problem-statement' },
   ];
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 mt-2 sm:mt-4">
       <div className="max-w-7xl mx-auto">
-        <div ref={mobileMenuRef} className="backdrop-blur-xl rounded-xl px-2 sm:px-6 py-2 sm:py-3 shadow-lg border border-white/20 bg-gradient-to-r from-white/20 to-gray-300/20 transition-all duration-300 overflow-hidden">
+        <div ref={mobileMenuRef} className="backdrop-blur-xl rounded-full px-2 sm:px-6 py-2 sm:py-3 shadow-lg border border-white/20 bg-gradient-to-r from-white/20 to-gray-300/20 transition-all duration-300 overflow-hidden">
           <div className="flex justify-between items-center">
             {/* Left side - Logo/Brand */}
             <div className="flex items-center">

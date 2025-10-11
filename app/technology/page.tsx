@@ -7,7 +7,7 @@ import Navigation from '../components/Navigation';
 import { LiquidButton } from '../components/ui/liquid-glass-button';
 
 export default function Technology() {
-  const [activeSection, setActiveSection] = useState('abstract');
+  const [activeSection, setActiveSection] = useState('unified-patient-twin');
   const [showBottomBar, setShowBottomBar] = useState(false);
   const [hideBottomBar, setHideBottomBar] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -39,7 +39,7 @@ export default function Technology() {
       
       // Reset to first section when scrolling back up to the top
       if (scrollPosition <= blueSectionHeight) {
-        setActiveSection('abstract');
+        setActiveSection('unified-patient-twin');
         return;
       }
       
@@ -72,12 +72,11 @@ export default function Technology() {
   };
 
   const sections = [
-    { id: 'abstract', title: 'Abstract' },
-    { id: 'main', title: 'Main' },
-    { id: 'results', title: 'Our results' },
-    { id: 'discussion', title: 'Discussion' },
-    { id: 'methods', title: 'Methods' },
-    { id: 'citations', title: 'Citations' }
+    { id: 'unified-patient-twin', title: 'Unified Patient Twin' },
+    { id: 'collaborative-intelligence', title: 'Collaborative Intelligence' },
+    { id: 'simulation-reasoning', title: 'Simulation and Clinical Reasoning' },
+    { id: 'scaling-trust', title: 'Scaling Trust' },
+    { id: 'road-ahead', title: 'The Road Ahead' }
   ];
 
   return (
@@ -102,7 +101,7 @@ export default function Technology() {
         }}></div>
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 mt-20">
-            Technology Overview
+            Inside the Somnium Twin Engine
           </h1>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
             <LiquidButton variant="technology" size="sm">
@@ -113,7 +112,7 @@ export default function Technology() {
             </LiquidButton>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Recovery of electrical activity from cryopreserved and rewarmed acutely resected rodent neural tissue
+            A secure, standards-based AI platform that connects all patient data into grounded clinical reality to provide a single, adaptive simulation environment.
           </p>
         </div>
       </section>
@@ -153,58 +152,95 @@ export default function Technology() {
             <div className="flex-1 max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
             <div className="prose prose-lg max-w-none">
                 
-                {/* Abstract */}
-                <div 
-                  ref={(el) => { sectionsRef.current.abstract = el; }}
-                  className="mb-12"
-                  id="abstract"
-                >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Abstract
+                {/* Introduction */}
+                <div className="mb-16">
+                  <p className="text-gray-700 leading-relaxed text-lg mb-8">
+                    Our proprietary Somnium Twin Engine represents a paradigm shift on how medicine is practiced. Through the convergence of disruptive technologies, the Twin Engine provides a platform for comprehensive and personalized digital twins, unlocking magnitudes of new research and therapies for patients. The timeline and exorbitant cost required to go from hypothesis generation to bedside clinical benefit is reduced to a fraction, enabling a new generation of healthier patients and more cost-efficient healthcare systems.
+                  </p>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-8">
+                    How it works:
                   </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Cryopreservation is a widely used technique for the storage of isolated neural cells and has recently been demonstrated to maintain electrical activity in simple neural organoids. However, recovery of action potentials from cryopreserved acutely resected neural tissue remains an ongoing challenge for the field.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Here, we cryopreserve and rewarm acutely resected rat cerebellar slices, demonstrating electrical activity after rewarming. This is, to our knowledge, the first report of recovery of electrical activity in acutely resected mammalian brain tissue with accompanying protocols for validation and replication.
-                  </p>
                 </div>
 
-                {/* Main */}
+                {/* Unified Patient Twin */}
                 <div 
-                  ref={(el) => { sectionsRef.current.main = el; }}
+                  ref={(el) => { sectionsRef.current['unified-patient-twin'] = el; }}
                   className="mb-12"
-                  id="main"
+                  id="unified-patient-twin"
                 >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Main
-              </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Cryopreservation of isolated cells is a ubiquitous technique that is required for the storage and shipment of primary neural progenitor cells <strong>(Hancock et al, 2000)</strong>. While neurons derived from these cells can provide some insights into single-cell biophysics and electrophysiology, their electrical activity is fundamentally different from neurons in the context of native microcircuits.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    For this reason, much neuroscience research is focused either in living organisms or in acute slices of tissue. Acute slices conveniently allow for electrical access to deep brain regions while maintaining much of the connectivity between cells <strong>(Frey et al, 2009)</strong>. Given the difficulty in quickly accessing and maintaining the viability of human brain tissue for research use, the vast majority of these experiments are performed on murine tissue, limiting translatability <strong>(Day et al, 2013)</strong>.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    An effective method for cryopreservation of acutely resected neural tissue from human donors would enable cryostorage and shipment of these valuable research samples, unlocking a new platform for basic neuroscience research and drug development. Recently, a protocol for successful cryopreservation of lab-grown brain organoids was shown, with impressive maintenance of structure and electrical activity after rewarming <strong>(Xue et al, 2024)</strong>. However, the study did not demonstrate electrical activity in their cryopreserved sample of acutely resected neural tissue.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    Organoids, while invaluable for modeling aspects of disease and early brain development, face limitations compared to acute tissue slices, such as a lack of mature cellular organization and functional connectivity, which can impact their translational relevance in neuroscience research <strong>(Qian & Song, 2019)</strong>.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Here, we present a method for cryopreservation of acute slices of rat cerebellar tissue, showing recovery of some electrical activity after cryopreservation and rewarming. This is, to our knowledge, the first demonstration of action potentials in cryopreserved and rewarmed acutely resected neural tissue.
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Unified Patient Twin
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    STE harmonizes clinical data from monitors, imaging, labs, and records into a real-time digital representation of each patient. It translates these signals into an evolving physiological model that reflects the patient's current and projected states.
                   </p>
                 </div>
 
-                {/* Our results */}
+                {/* Collaborative Intelligence */}
+                <div 
+                  ref={(el) => { sectionsRef.current['collaborative-intelligence'] = el; }}
+                  className="mb-12"
+                  id="collaborative-intelligence"
+                >
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Collaborative Intelligence
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Dozens of specialized AI systems — for diagnostics, organ function, treatment planning, and prediction — collaborate through STE's innovative platform. Instead of dozens of isolated snapshots, clinicians see a single, evolving portrait: a whole-patient context that supports real-time decision-making.
+                  </p>
+                </div>
+
+                {/* Simulation and Clinical Reasoning */}
+                <div 
+                  ref={(el) => { sectionsRef.current['simulation-reasoning'] = el; }}
+                  className="mb-12"
+                  id="simulation-reasoning"
+                >
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Simulation and Clinical Reasoning
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Clinicians can explore potential interventions virtually: altering therapy parameters and observing projected responses across organs and time. As real-world data accumulates, STE refines its internal models and continuously improves fidelity and personalization. Through STE, we can scale clinical reasoning from an individual patient level to the hospital level, ultimately leading to the best possible decisions.
+                  </p>
+                </div>
+
+                {/* Scaling Trust */}
+                <div 
+                  ref={(el) => { sectionsRef.current['scaling-trust'] = el; }}
+                  className="mb-12"
+                  id="scaling-trust"
+                >
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Scaling Trust
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    STE solves one of the most important aspects of healthcare: trust. STE is designed from the ground up to meet emerging regulatory standards for responsible AI in medicine, and ensure we enhance the trust that exists between patients, healthcare workers, and the hospital systems.
+                  </p>
+                </div>
+
+                {/* The Road Ahead */}
+                <div 
+                  ref={(el) => { sectionsRef.current['road-ahead'] = el; }}
+                  className="mb-12"
+                  id="road-ahead"
+                >
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    The Road Ahead
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Our initial deployments focus on critical care, where decisions are most time-sensitive and data-rich. From there, the Somnium Twin Engine will extend to cardiology, oncology, longevity, and preventative health — building the first universal and wholistic framework for human digital twins.
+                  </p>
+                </div>
+
+                {/* Old Results Section - Keeping for reference but hidden */}
                 <div 
                   ref={(el) => { sectionsRef.current.results = el; }}
-                  className="mb-12"
+                  className="mb-12 hidden"
                   id="results"
                 >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     Our results
-                  </h2>
+              </h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
                     To achieve viable preservation, we first diffusively loaded 300 micron thick acute rat cerebellar slices with a cryoprotectant solution <strong>(Fig1a and Fig1b)</strong> whose composition is identical to the established VMP cryoprotectant <strong>(Han et al. 2023, Fahy et al. 2004)</strong> save the removal of one component <strong>(X-1000 ice blocker)</strong>.
                   </p>
@@ -261,96 +297,6 @@ export default function Technology() {
                     </div>
                 </div>
               </div>
-
-                {/* Discussion */}
-                <div 
-                  ref={(el) => { sectionsRef.current.discussion = el; }}
-                  className="mb-12"
-                  id="discussion"
-                >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Discussion
-                  </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Here, we demonstrate recovery of electrical activity in previously cryopreserved acute rodent neural tissue. Due to the high viscosity of vitrified water, bringing a sample to LN2 temperature (-196ºC) allows for virtually indefinite storage due to the extreme slowing of molecular motion, stopping metabolism and preventing ice formation.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    The finding that neural tissue can reach LN2 temperature and be rewarmed to recover electrical activity marks an important milestone on the trajectory to an acute slice preservation protocol appropriate for the storage of acutely resected human tissue for research applications.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Iterations and improvements to this protocol will be necessary to achieve a level of preservation and functional viability required for translatable research using this method. Continued screening of highly effective and minimally toxic CPA formulations specifically targeted for neural tissue will enable improved viability.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Our next aim along this trajectory is to apply novel neural CPAs and thermal control protocols to demonstrate synaptic function and long-term potentiation (LTP) in an acute slice following cryopreservation, moving towards effective cryopreservation of slices that more closely resemble healthy controls.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Additionally, this work sheds light on the possibility of whole body reversible cryopreservation, which would enable medical hibernation to halt the progression of terminal diseases showing promise of a cure in the foreseeable future. We predict that neural tissue will pose a particular challenge compared to other organs due to limited capacity for regeneration, low redundancy, high osmotic sensitivity, and the presence of the blood brain barrier which may limit uptake of cryoprotective agents.
-                  </p>
-                </div>
-
-                {/* Methods */}
-                <div 
-                  ref={(el) => { sectionsRef.current.methods = el; }}
-                  className="mb-12"
-                  id="methods"
-                >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Methods
-                  </h2>
-                  
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Cryoprotectant Loading</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Acute cerebellar slices were loaded with VMPnoX cryoprotectant solution (53% w/v cryoprotectants) through a controlled diffusion process. The tissue was placed in a multifunctional sample holder with a custom well for diffusive loading of cryoprotectant.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Vitrification Protocol</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Tissue samples were rapidly cooled from 4ºC to -196ºC using a jet of liquid nitrogen (LN2). Cooling rates of 1140 ºC/min were achieved for the slices reported in the study. A thermocouple placed next to the slice was monitored, and LN2 flow was maintained for 30 seconds after minimum temperature had been reached.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">AMF Rewarming</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    After holding at -196ºC for 1 minute, flow of LN2 was halted and the sample was quickly rewarmed using an AMF electromagnet operating at 15W field strength and ~70kHz frequency. A rate of 1280 ºC/min was reached for the slice reported in the study.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">CPA Unloading</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    After rewarming, the vitrification hat was removed and the perfusion hat was re-installed. The CPA unloading protocol included a 500 second linear ramp from 53% to 0% w/v CPA, followed by 10 minutes of 0% w/v CPA.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">MEA Slice Electrophysiology</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    Viability in tissue slices was evaluated by multi-electrode array electrophysiology using the 3Brain BioCAM DupleX system. The 3Brain HD-MEA Acura 2D chip model was used, with 4,096 electrodes in a working area of 3.84mm x 3.84mm. Recordings were acquired with 20kHz sampling frequency.
-                  </p>
-                </div>
-
-                {/* Citations */}
-                <div 
-                  ref={(el) => { sectionsRef.current.citations = el; }}
-                  className="mb-12"
-                  id="citations"
-                >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Citations
-                  </h2>
-                  <div className="space-y-3 text-sm text-gray-700">
-                    <p><strong>Day, B., Stringer, B., Wilson, J., Jeffree, R., Jamieson, P., Ensbey, K., Bruce, Z., Inglis, P., Allan, S., Winter, C., Tollesson, G., Campbell, S., Lucas, P., Findlay, W., Kadrian, D., Johnson, D., Robertson, T., Johns, T., Bartlett, P., Osborne, G., & Boyd, A.</strong> (2013). Glioma Surgical Aspirate: A Viable Source of Tumor Tissue for Experimental Research. Cancers, 5, 357 - 371.</p>
-                    
-                    <p><strong>Fahy GM, Wowk B, Wu J, Phan J, Rasch C, Chang A, Zendejas E.</strong> Cryopreservation of organs by vitrification: perspectives and recent advances. Cryobiology. 2004 Apr;48(2):157-78.</p>
-                    
-                    <p><strong>Frey, U., Egert, U., Heer, F., Hafizovic, S., & Hierlemann, A.</strong> (2009). Microelectronic system for high-resolution mapping of extracellular electric fields applied to brain slices. Biosensors & bioelectronics, 24 7, 2191-8.</p>
-                    
-                    <p><strong>Han, Z., Rao, J.S., Gangwar, L. et al.</strong> Vitrification and nanowarming enable long-term organ cryopreservation and life-sustaining kidney transplantation in a rat model. Nat Commun 14, 3407 (2023).</p>
-                    
-                    <p><strong>Hancock, C., Wetherington, J., Lambert, N., & Condie, B.</strong> (2000). Neuronal differentiation of cryopreserved neural progenitor cells derived from mouse embryonic stem cells. Biochemical and biophysical research communications, 271 2, 418-21.</p>
-                    
-                    <p><strong>Maccione, A., Gandolfo, M., Massobrio, P., Novellino, A., Martinoia, S., & Chiappalone, M.</strong> (2009). A novel algorithm for precise identification of spikes in extracellularly recorded neuronal signals. Journal of Neuroscience Methods, 177(1), 241–249.</p>
-                    
-                    <p><strong>Xue W, Li H, Xu J, Yu X, Liu L, Liu H, Zhao R, Shao Z.</strong> (2024) Effective cryopreservation of human brain tissue and neural organoids. Cell Reports Methods. May; 4(5).</p>
-                    
-                    <p><strong>Qian X, Song H, Ming GL.</strong> Brain organoids: advances, applications and challenges. Development. 2019 Apr 16;146(8):dev166074.</p>
-                  </div>
-                </div>
 
                 {/* Contact Section */}
                 <div className="bg-gradient-to-r from-stone-100 to-stone-200 rounded-xl p-8 text-center">
