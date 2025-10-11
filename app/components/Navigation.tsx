@@ -43,7 +43,9 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 mt-2 sm:mt-4">
       <div className="max-w-7xl mx-auto">
-        <div ref={mobileMenuRef} className="backdrop-blur-xl rounded-full px-2 sm:px-6 py-2 sm:py-3 shadow-lg border border-white/20 bg-gradient-to-r from-white/20 to-gray-300/20 transition-all duration-300 overflow-hidden">
+        <div ref={mobileMenuRef} className={`backdrop-blur-xl px-2 sm:px-6 py-2 sm:py-3 shadow-lg border border-white/20 bg-gradient-to-r from-white/20 to-gray-300/20 overflow-hidden transition-all duration-200 ${
+          isMobileMenuOpen ? 'rounded-2xl' : 'rounded-full'
+        }`}>
           <div className="flex justify-between items-center">
             {/* Left side - Logo/Brand */}
             <div className="flex items-center">
@@ -109,15 +111,9 @@ const Navigation = () => {
                     : 'text-white/70 hover:text-white'
                 }`}
               >
-                {isMobileMenuOpen ? (
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                )}
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </button>
             </div>
           </div>
@@ -135,11 +131,11 @@ const Navigation = () => {
                     className={`text-sm font-medium transition-colors duration-200 px-4 py-3 rounded-md border-l-4 whitespace-nowrap overflow-hidden text-ellipsis ${
                       pathname === item.href
                         ? isScrolled
-                          ? 'text-gray-900 bg-gray-100 border-gray-400'
-                          : 'text-white bg-white/15 border-white/40'
+                          ? 'text-gray-900 bg-gray-200/80 backdrop-blur-sm border-gray-400'
+                          : 'text-white bg-white/20 backdrop-blur-sm border-white/40'
                         : isScrolled
-                          ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-50 border-transparent hover:border-gray-300'
-                          : 'text-white/70 hover:text-white hover:bg-white/10 border-transparent hover:border-white/20'
+                          ? 'text-gray-700 hover:text-gray-900 border-transparent'
+                          : 'text-white/70 hover:text-white border-transparent'
                     }`}
                   >
                     {item.name}

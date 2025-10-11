@@ -11,6 +11,7 @@ export default function FounderLetter() {
   const [showBottomBar, setShowBottomBar] = useState(false);
   const [hideBottomBar, setHideBottomBar] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
@@ -62,6 +63,33 @@ export default function FounderLetter() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            setVisibleSections((prev) => new Set(prev).add(sectionId));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    Object.values(sectionsRef.current).forEach((element) => {
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -119,8 +147,8 @@ export default function FounderLetter() {
       <section className="relative bg-stone-50">
         <div className="pb-20">
           <div className="flex relative">
-            {/* Left Sidebar Navigation - Sticky to white content area */}
-            <div className="sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
+            {/* Left Sidebar Navigation - Sticky to white content area - Hidden on mobile */}
+            <div className="hidden md:block sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
               <nav className="space-y-3">
                 {sections.map((section) => (
                   <button
@@ -169,7 +197,11 @@ export default function FounderLetter() {
                 {/* Why Now */}
                 <div 
                   ref={(el) => { sectionsRef.current['why-now'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('why-now') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="why-now"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -183,7 +215,11 @@ export default function FounderLetter() {
                 {/* Our Responsibility */}
                 <div 
                   ref={(el) => { sectionsRef.current['our-responsibility'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('our-responsibility') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="our-responsibility"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -200,7 +236,11 @@ export default function FounderLetter() {
                 {/* The Dream We Serve */}
                 <div 
                   ref={(el) => { sectionsRef.current['the-dream'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('the-dream') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="the-dream"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">

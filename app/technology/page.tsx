@@ -11,6 +11,7 @@ export default function Technology() {
   const [showBottomBar, setShowBottomBar] = useState(false);
   const [hideBottomBar, setHideBottomBar] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
@@ -62,6 +63,33 @@ export default function Technology() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            setVisibleSections((prev) => new Set(prev).add(sectionId));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    Object.values(sectionsRef.current).forEach((element) => {
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -121,8 +149,8 @@ export default function Technology() {
       <section className="relative bg-stone-50">
         <div className="pb-20">
           <div className="flex relative">
-            {/* Left Sidebar Navigation - Sticky to white content area */}
-            <div className="sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
+            {/* Left Sidebar Navigation - Sticky to white content area - Hidden on mobile */}
+            <div className="hidden md:block sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
               <nav className="space-y-3">
                 {sections.map((section) => (
                   <button
@@ -165,7 +193,11 @@ export default function Technology() {
                 {/* Unified Patient Twin */}
                 <div 
                   ref={(el) => { sectionsRef.current['unified-patient-twin'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('unified-patient-twin') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="unified-patient-twin"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -179,7 +211,11 @@ export default function Technology() {
                 {/* Collaborative Intelligence */}
                 <div 
                   ref={(el) => { sectionsRef.current['collaborative-intelligence'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('collaborative-intelligence') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="collaborative-intelligence"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -193,7 +229,11 @@ export default function Technology() {
                 {/* Simulation and Clinical Reasoning */}
                 <div 
                   ref={(el) => { sectionsRef.current['simulation-reasoning'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('simulation-reasoning') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="simulation-reasoning"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -207,7 +247,11 @@ export default function Technology() {
                 {/* Scaling Trust */}
                 <div 
                   ref={(el) => { sectionsRef.current['scaling-trust'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('scaling-trust') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="scaling-trust"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -221,7 +265,11 @@ export default function Technology() {
                 {/* The Road Ahead */}
                 <div 
                   ref={(el) => { sectionsRef.current['road-ahead'] = el; }}
-                  className="mb-12"
+                  className={`mb-12 transition-all duration-700 ${
+                    visibleSections.has('road-ahead') 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
                   id="road-ahead"
                 >
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">

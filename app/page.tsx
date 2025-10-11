@@ -1,11 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Footer from './components/Footer';
 import { LiquidButton } from './components/ui/liquid-glass-button';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,35 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            if (sectionId) {
+              setVisibleSections((prev) => new Set(prev).add(sectionId));
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    Object.values(sectionRefs.current).forEach((element) => {
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -39,7 +70,7 @@ export default function Home() {
         {/* Main content */}
         <div className="relative z-10 text-center px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto">
           <div className="space-y-8 animate-slideUp">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 animate-fadeInUp">
+            <h1 className="text-xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 animate-fadeInUp">
               Healthcare AI Infrastructure that <br className="hidden sm:block" />Scales Trust and Reasoning.
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed animate-fadeInUp animation-delay-200">
@@ -73,7 +104,16 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* The Problem Section */}
-      <section className="relative py-20 lg:py-32 animate-fadeIn bg-white overflow-hidden">
+      <section 
+        ref={(el) => { sectionRefs.current['problem'] = el; }}
+        id="problem"
+        className={`relative py-20 lg:py-32 bg-white overflow-hidden transition-all duration-700 ${
+          visibleSections.has('problem') 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{ backgroundColor: '#F8F2EB' }}
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-10 left-10 w-72 h-72 bg-gray-400 rounded-full blur-3xl"></div>
@@ -87,15 +127,15 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 animate-fadeInUp text-gray-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 animate-fadeInUp text-gray-900">
               The Problem
             </h2>
             <div className="max-w-5xl mx-auto">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl border border-gray-200 animate-fadeInUp animation-delay-200">
-                <p className="font-bold text-xl sm:text-2xl lg:text-3xl text-gray-800 mb-6 sm:mb-8 leading-tight">
+                <p className="font-bold text-base sm:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-tight">
                   Modern medicine is still trial and error.
                 </p>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 text-xs sm:text-sm lg:text-base text-gray-700 leading-relaxed">
                   <div className="space-y-4 sm:space-y-6">
                     <p>
                       In critical care, every minute counts. A single change in drug, ventilator, or fluid balance can save or end a life.
@@ -113,7 +153,7 @@ export default function Home() {
                       </p>
                     </div>
                     <div className="bg-gradient-to-r from-gray-600 to-gray-700 rounded-xl p-4 sm:p-6 text-white">
-                      <p className="font-bold text-lg sm:text-xl">
+                      <p className="font-bold text-sm sm:text-base">
                         The result: uncertainty, preventable harm, and billions lost to reactive care.
                       </p>
                     </div>
@@ -129,7 +169,16 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* Our Solution Section */}
-      <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+      <section 
+        ref={(el) => { sectionRefs.current['solution'] = el; }}
+        id="solution"
+        className={`relative py-20 lg:py-32 transition-all duration-700 ${
+          visibleSections.has('solution') 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{ backgroundColor: '#F8F2EB' }}
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 right-20 w-80 h-80 bg-gray-400 rounded-full blur-3xl"></div>
@@ -144,16 +193,16 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 animate-fadeInUp text-gray-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 animate-fadeInUp text-gray-900">
               Our Solution
             </h2>
             <div className="max-w-5xl mx-auto">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl border border-gray-200 animate-fadeInUp animation-delay-200">
                 <div className="text-center mb-8 sm:mb-12">
-                  <p className="font-bold text-xl sm:text-2xl lg:text-3xl text-gray-800 mb-3 sm:mb-4">
+                  <p className="font-bold text-base sm:text-lg lg:text-xl text-gray-800 mb-3 sm:mb-4">
                     Somnium Twin Engine (SE)
                   </p>
-                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 font-medium">
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-700 font-medium">
                     A unified intelligence for the entire patient.
                   </p>
                 </div>
@@ -165,8 +214,8 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-lg text-gray-800 mb-3">Foundational Architecture</h3>
-                    <p className="text-gray-700 text-sm">
+                    <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-3">Foundational Architecture</h3>
+                    <p className="text-gray-700 text-xs sm:text-sm">
                       Powers a new generation of clinical and research systems
                     </p>
                   </div>
@@ -177,8 +226,8 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-lg text-gray-800 mb-3">Causal Simulation</h3>
-                    <p className="text-gray-700 text-sm">
+                    <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-3">Causal Simulation</h3>
+                    <p className="text-gray-700 text-xs sm:text-sm">
                       Transitions from data interpretation to integrated foresight
                     </p>
                   </div>
@@ -189,15 +238,15 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-lg text-gray-800 mb-3">Digital Twin</h3>
-                    <p className="text-gray-700 text-sm">
+                    <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-3">Digital Twin</h3>
+                    <p className="text-gray-700 text-xs sm:text-sm">
                       Dynamic patient models for safe what-if exploration
                     </p>
-                  </div>
-                </div>
-                
+              </div>
+            </div>
+            
                 <div className="bg-gradient-to-r from-gray-600 to-gray-700 rounded-xl p-6 sm:p-8 text-white text-center">
-                  <p className="font-bold text-lg sm:text-xl lg:text-2xl leading-relaxed">
+                  <p className="font-bold text-base sm:text-lg lg:text-xl leading-relaxed">
                     Before adjusting therapy, teams can visualize how the body might respond, enabling clinicians to choose interventions based on <span className="underline decoration-2 underline-offset-4">foresight, not hindsight</span>.
                   </p>
                 </div>
@@ -211,7 +260,16 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* Why Now Section */}
-      <section className="relative py-20 lg:py-32 animate-fadeIn bg-white overflow-hidden">
+      <section 
+        ref={(el) => { sectionRefs.current['why-now'] = el; }}
+        id="why-now"
+        className={`relative py-20 lg:py-32 bg-white overflow-hidden transition-all duration-700 ${
+          visibleSections.has('why-now') 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{ backgroundColor: '#F8F2EB' }}
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-10 right-10 w-96 h-96 bg-gray-400 rounded-full blur-3xl"></div>
@@ -226,12 +284,12 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 animate-fadeInUp text-gray-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 animate-fadeInUp text-gray-900">
               Why Now
             </h2>
             <div className="max-w-5xl mx-auto">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl border border-gray-200 animate-fadeInUp animation-delay-200">
-                <p className="font-bold text-xl sm:text-2xl lg:text-3xl text-gray-800 mb-8 sm:mb-12 leading-tight">
+                <p className="font-bold text-base sm:text-lg lg:text-xl text-gray-800 mb-8 sm:mb-12 leading-tight">
                   Medicine finally has the ingredients simulation has always required:
                 </p>
                 
@@ -242,8 +300,8 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-3 sm:mb-4">Real-time Data</h3>
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <h3 className="font-bold text-sm sm:text-base text-gray-800 mb-3 sm:mb-4">Real-time Data</h3>
+                    <p className="text-gray-700 text-xs leading-relaxed">
                       From ICUs and biosensors providing continuous patient monitoring and vital sign tracking
                     </p>
                   </div>
@@ -254,8 +312,8 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-3 sm:mb-4">Foundation Models</h3>
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <h3 className="font-bold text-sm sm:text-base text-gray-800 mb-3 sm:mb-4">Foundation Models</h3>
+                    <p className="text-gray-700 text-xs leading-relaxed">
                       Multimodal AI systems trained on vast medical datasets for comprehensive understanding
                     </p>
                   </div>
@@ -266,8 +324,8 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-3 sm:mb-4">Compute Power</h3>
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <h3 className="font-bold text-sm sm:text-base text-gray-800 mb-3 sm:mb-4">Compute Power</h3>
+                    <p className="text-gray-700 text-xs leading-relaxed">
                       Advanced processing capabilities once reserved for complex physics simulations
                     </p>
                   </div>
@@ -278,15 +336,15 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-lg sm:text-xl text-gray-800 mb-3 sm:mb-4">Regulatory Pathways</h3>
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <h3 className="font-bold text-sm sm:text-base text-gray-800 mb-3 sm:mb-4">Regulatory Pathways</h3>
+                    <p className="text-gray-700 text-xs leading-relaxed">
                       Clear guidelines and approval frameworks for effective AI implementation in healthcare
                     </p>
                   </div>
                 </div>
                 
                 <div className="bg-gradient-to-r from-gray-600 to-gray-700 rounded-2xl p-6 sm:p-8 text-white text-center">
-                  <p className="font-bold text-lg sm:text-xl lg:text-2xl leading-relaxed">
+                  <p className="font-bold text-sm sm:text-base lg:text-lg leading-relaxed">
                     Somnium Biolabs unites these into <span className="underline decoration-2 underline-offset-4">one operating system for human physiology</span>.
                   </p>
                 </div>
@@ -300,7 +358,16 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* Our Vision Section */}
-      <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+      <section 
+        ref={(el) => { sectionRefs.current['vision'] = el; }}
+        id="vision"
+        className={`relative py-20 lg:py-32 transition-all duration-700 ${
+          visibleSections.has('vision') 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{ backgroundColor: '#F8F2EB' }}
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-20 w-96 h-96 bg-gray-400 rounded-full blur-3xl"></div>
@@ -316,13 +383,13 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 animate-fadeInUp text-gray-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 animate-fadeInUp text-gray-900">
               Our Vision
             </h2>
             <div className="max-w-5xl mx-auto">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl border border-gray-200 animate-fadeInUp animation-delay-200">
                 <div className="text-center mb-8 sm:mb-12">
-                  <p className="font-bold text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 sm:mb-8 leading-tight">
+                  <p className="font-bold text-lg sm:text-xl lg:text-2xl text-gray-800 mb-6 sm:mb-8 leading-tight">
                     Every patient deserves a digital counterpart.
                   </p>
                 </div>
@@ -337,8 +404,8 @@ export default function Home() {
                           </svg>
                         </div>
                         <div>
-                          <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-2 sm:mb-3">For Physicians</h3>
-                          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                          <h3 className="font-bold text-xs sm:text-sm text-gray-800 mb-2 sm:mb-3">For Physicians</h3>
+                          <p className="text-gray-700 text-xs leading-relaxed">
                             Continuously learning digital reflections that help make safer, smarter clinical decisions
                           </p>
                         </div>
@@ -353,8 +420,8 @@ export default function Home() {
                           </svg>
                         </div>
                         <div>
-                          <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-2 sm:mb-3">For Hospitals</h3>
-                          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                          <h3 className="font-bold text-xs sm:text-sm text-gray-800 mb-2 sm:mb-3">For Hospitals</h3>
+                          <p className="text-gray-700 text-xs leading-relaxed">
                             Integrated systems that optimize resource allocation and improve patient outcomes
                           </p>
                         </div>
@@ -371,8 +438,8 @@ export default function Home() {
                           </svg>
                         </div>
                         <div>
-                          <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-2 sm:mb-3">For Patients</h3>
-                          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                          <h3 className="font-bold text-xs sm:text-sm text-gray-800 mb-2 sm:mb-3">For Patients</h3>
+                          <p className="text-gray-700 text-xs leading-relaxed">
                             Personalized care that helps them live longer, healthier lives through predictive insights
                           </p>
                         </div>
@@ -387,8 +454,8 @@ export default function Home() {
                           </svg>
                         </div>
                         <div>
-                          <h3 className="font-bold text-base sm:text-lg text-gray-800 mb-2 sm:mb-3">For Healthcare</h3>
-                          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                          <h3 className="font-bold text-xs sm:text-sm text-gray-800 mb-2 sm:mb-3">For Healthcare</h3>
+                          <p className="text-gray-700 text-xs leading-relaxed">
                             Revolutionary AI infrastructure that transforms how medicine is practiced and delivered
                           </p>
                         </div>
@@ -398,7 +465,7 @@ export default function Home() {
                 </div>
                 
                 <div className="bg-gradient-to-r from-gray-600 to-gray-700 rounded-2xl p-6 sm:p-8 text-white text-center">
-                  <p className="font-bold text-lg sm:text-xl lg:text-2xl leading-relaxed">
+                  <p className="font-bold text-sm sm:text-base lg:text-lg leading-relaxed">
                     This isn't science fiction — it's the <span className="underline decoration-2 underline-offset-4">next generation AI infrastructure of modern medicine</span>.
                   </p>
                 </div>
@@ -412,7 +479,16 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* A Word on The Tech Section */}
-      <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+      <section 
+        ref={(el) => { sectionRefs.current['tech'] = el; }}
+        id="tech"
+        className={`relative py-20 lg:py-32 transition-all duration-700 ${
+          visibleSections.has('tech') 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{ backgroundColor: '#F8F2EB' }}
+      >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 animate-fadeInUp">
@@ -483,7 +559,16 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* Virtual Human Section */}
-        <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+        <section 
+          ref={(el) => { sectionRefs.current['virtual-human'] = el; }}
+          id="virtual-human"
+          className={`relative py-20 lg:py-32 transition-all duration-700 ${
+            visibleSections.has('virtual-human') 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+          style={{ backgroundColor: '#F8F2EB' }}
+        >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
@@ -544,7 +629,16 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
 
       {/* Design Optimization Section */}
-      <section className="relative py-20 lg:py-32 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+      <section 
+        ref={(el) => { sectionRefs.current['design-optimization'] = el; }}
+        id="design-optimization"
+        className={`relative py-20 lg:py-32 transition-all duration-700 ${
+          visibleSections.has('design-optimization') 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+        style={{ backgroundColor: '#F8F2EB' }}
+      >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
@@ -633,7 +727,7 @@ export default function Home() {
       <div className="border-t border-gray-400"></div>
             
       {/* Contact Section */}
-       <div id="contact" className="rounded-xl p-6 sm:p-8 text-center mx-4 sm:mx-0 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
+       <div id="contact" className="p-6 sm:p-8 text-center  sm:mx-0 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
          <h6 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4 animate-fadeInUp">
            Have something to say?
          </h6>

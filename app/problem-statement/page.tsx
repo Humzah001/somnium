@@ -112,7 +112,7 @@ export default function ProblemStatement() {
       <section className="relative bg-stone-50">
         <div className="pb-20">
           <div className="flex relative">
-            <div className="sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
+            <div className="hidden md:block sticky top-24 left-0 h-fit z-40 pl-4 sm:pl-8 mr-4 sm:mr-8 pt-8">
               <nav className="space-y-3">
                 {sections.map((section) => (
                   <button
