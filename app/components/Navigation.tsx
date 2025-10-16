@@ -48,8 +48,11 @@ const Navigation = () => {
         }`}>
           <div className="flex justify-between items-center">
             {/* Left side - Logo/Brand */}
-            <div className="flex items-center">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 mr-1 sm:mr-3 rounded-full overflow-hidden bg-white/10 p-1">
+            
+              <div 
+                className="w-6 h-6 sm:w-8 sm:h-8 mr-1 sm:mr-3 rounded-full overflow-hidden bg-white/10 p-1 cursor-pointer hover:bg-white/20 transition-colors duration-200"
+                onClick={() => window.location.href = '/'}
+              >
                 <Image
                   src="/logo.jpg"
                   alt="Somnium Biolabs Logo"
@@ -58,15 +61,6 @@ const Navigation = () => {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <Link href="/" className={`text-sm sm:text-lg font-semibold transition-colors font-exo2 ${
-                isScrolled 
-                  ? 'text-gray-900 hover:text-black' 
-                  : 'text-white/90 hover:text-white'
-              }`}>
-                <span className="hidden sm:inline">Somnium Biolabs</span>
-                <span className="sm:hidden">Somnium</span>
-              </Link>
-            </div>
             
             {/* Center - Navigation Links (Desktop) */}
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">

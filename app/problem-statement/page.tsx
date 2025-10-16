@@ -328,7 +328,7 @@ export default function ProblemStatement() {
                     Curious to learn more about our approach?
                   </h3>
                   <p className="text-gray-700 mb-4">
-                    Reach out at <a href="mailto:chintan@somniumbio.com" className="text-blue-600 hover:text-blue-700 font-medium underline">chintan@somniumbio.com</a>
+                    Reach out at <a href="mailto:contact@somniumbio.com" className="text-blue-600 hover:text-blue-700 font-medium underline">contact@somniumbio.com</a>
                   </p>
                 </div>
               </div>
