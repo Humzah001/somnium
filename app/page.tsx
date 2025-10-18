@@ -522,11 +522,31 @@ export default function Home() {
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-8'
         }`}
-        style={{ backgroundColor: '#F8F2EB' }}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        {/* Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ 
+            objectPosition: 'center center'
+          }}
+        >
+          <source src="/phy.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        {/* Blur Overlay */}
+        <div className="absolute inset-0 backdrop-blur-[2px] bg-white/5"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 animate-fadeInUp">
             Physiological Simulation, Outcome Optimization, and Deep Personalization
             </h2>
           </div>
@@ -549,73 +569,73 @@ export default function Home() {
             </div>
             {/* Benefit 1 */}
             <div className="text-center animate-fadeInUp animation-delay-200 hover:scale-105 transition-all duration-500 group relative">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <p className="text-white text-xs sm:text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
               Enhanced understanding of baseline physiologic performance
               </p>
             </div>
 
             {/* Benefit 2 */}
             <div className="text-center animate-fadeInUp animation-delay-300 hover:scale-105 transition-all duration-500 group relative">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
-              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <p className="text-white text-xs sm:text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
               Hypothesis generation and testing through numerous physiologic simulations
               </p>
             </div>
 
             {/* Benefit 3 */}
             <div className="text-center animate-fadeInUp animation-delay-400 hover:scale-105 transition-all duration-500 group relative">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <p className="text-white text-xs sm:text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
               Decreased research and prototyping time, costs, and improved patient outcomes
               </p>
             </div>
 
             {/* Benefit 4 */}
             <div className="text-center animate-fadeInUp animation-delay-500 hover:scale-105 transition-all duration-500 group relative">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
-              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <p className="text-white text-xs sm:text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
               Provide scientific evidence following established guidelines for benchmarking, validation, and uncertainty quantification
               </p>
             </div>
 
             {/* Benefit 5 */}
             <div className="text-center animate-fadeInUp animation-delay-600 hover:scale-105 transition-all duration-500 group relative">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <p className="text-white text-xs sm:text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
               Communicate improved performances and outcomes through scientific publication
               </p>
             </div>
 
             {/* Benefit 6 */}
             <div className="text-center animate-fadeInUp animation-delay-700 hover:scale-105 transition-all duration-500 group relative">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:animate-pulse">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <p className="text-white text-xs sm:text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
               Accelerate time to market at a fraction of the cost
               </p>
             </div>
