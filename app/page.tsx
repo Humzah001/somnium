@@ -164,41 +164,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40"></div>
         
         {/* Blur Overlay */}
-        <div className="absolute inset-0 backdrop-blur-sm bg-white/5"></div>
+        <div className="absolute inset-0 backdrop-blur-[4px] bg-white/5"></div>
         
         {/* Dynamic Blue Circle Overlay */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-        
-        {/* Floating Orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-3 h-3 bg-white/20 rounded-full animate-bounce"
-              style={{
-                left: `${10 + i * 12}%`,
-                top: `${20 + (i % 4) * 20}%`,
-                animationDelay: `${i * 0.3}s`,
-                animationDuration: `${2 + i * 0.2}s`,
-              }}
-            />
-          ))}
-        </div>
-        
-        {/* Gradient Lines */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
-              style={{
-                top: `${30 + i * 25}%`,
-                animation: `moveLine ${4 + i}s ease-in-out infinite`,
-                animationDelay: `${i * 0.5}s`
-              }}
-            />
-          ))}
-        </div>
         
         {/* Main content */}
         <div className="relative z-10 text-center px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -270,8 +239,8 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-bold text-gray-800 mb-3 vision-blue transition-colors duration-300">For Physicians</h3>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                Continuously learning digital reflections that help make safer, smarter clinical decisions with predictive insights.
-              </p>
+              Continuously learning patient digital twin that leverages custom simulations to provide safer and smarter clinical decisions with predictive insights.
+                </p>
             </div>
 
             {/* For Hospitals Card */}
@@ -286,7 +255,7 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-bold text-gray-800 mb-3 vision-yellow transition-colors duration-300">For Hospitals</h3>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                Integrated systems that optimize resource allocation and improve patient outcomes across all departments.
+              Vendor-agnostic architecture that orchestrates multimodal data and various AI model outputs into a personalized evolving patient digital twin, improving resource allocation and patient outcomes across all domains.
               </p>
             </div>
 
@@ -302,8 +271,8 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-bold text-gray-800 mb-3 vision-red transition-colors duration-300">For Patients</h3>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                Personalized care that helps them live longer, healthier lives through predictive insights and early intervention.
-              </p>
+              A comprehensive and continuously evolving digital twin that is grounded in personalized physiology, unlocking unique insights and early interventions to improve health.
+               </p>
             </div>
 
             {/* For Healthcare Card */}
@@ -326,7 +295,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <div className="bg-gradient-to-r from-gray-600 to-gray-700 rounded-xl p-6 sm:p-8 text-white max-w-4xl mx-auto">
               <p className="font-bold text-base sm:text-lg lg:text-xl leading-relaxed">
-              Somnium Biolabs unites foundational models, real-time data, and compute power into the next generation of operating system for human physiology. It is the AI infrastructure required for truly personalized medicine.
+              Somnium Biolabs unites foundational models, real-time data, and compute power into the next generation of operating system for human physiology.
               </p>
             </div>
           </div>
@@ -353,8 +322,8 @@ export default function Home() {
               A Word on <span className="text-gray-800">The Tech</span>
             </h2>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed scroll-fade-in animation-delay-200">
-              Our Somnium Twin Engine (STE) combines cutting-edge AI infrastructure with deep domain expertise in physiology and computational biology to create powerful new tools for healthcare innovation. Our technology provides a unified and personalized intelligence for the entire patient.           
-           </p>
+            Our Somnium Twin Engine (STE) combines cutting-edge AI infrastructure and advanced machine learning with deep domain expertise in physiology to create powerful new tools for healthcare innovation. Our technology provides a unified and personalized intelligence for the entire patient.
+             </p>
           </div>
           
           {/* Sliding Cards Container */}
@@ -479,8 +448,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
-            The world's first complete virtual physiological human, powered by the Somnium Twin Engine, is leveraged to enhance your human outcomes  
-            </h2>
+            The world's first virtual physiological human on the Somnium Twin Engine unlocks human life without limits for Earth and Beyond.
+           </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
@@ -498,30 +467,12 @@ export default function Home() {
               
               <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 group-hover:text-gray-900 transition-colors duration-300">Critical Care</h3>
               <p className="text-gray-700 text-base sm:text-lg group-hover:text-gray-800 transition-colors duration-300">
-                Improved treatment via medical device optimization
+                Improved patient outcomes through custom simulations of personalized patient digital twins
               </p>
             </div>
 
-            {/* Aerospace */}
-            <div className="text-center scroll-fade-in animation-delay-400 hover:scale-105 transition-all duration-500 group relative">
-              <div className="relative">
-                <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden bg-white/50 flex items-center justify-center relative z-10 border-2 border-transparent group-hover:border-gray-400 transition-colors duration-300">
-                  <img 
-                    src="/Aerospace.jpg" 
-                    alt="Aerospace" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 group-hover:text-gray-900 transition-colors duration-300">Aerospace</h3>
-              <p className="text-gray-700 text-base sm:text-lg group-hover:text-gray-800 transition-colors duration-300">
-                Improved military personnel protection via gear optimization
-              </p>
-            </div>
-            
             {/* Clinical Research */}
-            <div className="text-center scroll-slide-right animation-delay-600 hover:scale-105 transition-all duration-500 group relative">
+            <div className="text-center scroll-fade-in animation-delay-400 hover:scale-105 transition-all duration-500 group relative">
               <div className="relative">
                 <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden bg-white/50 flex items-center justify-center relative z-10 border-2 border-transparent group-hover:border-gray-400 transition-colors duration-300">
                   <img 
@@ -534,7 +485,25 @@ export default function Home() {
               
               <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 group-hover:text-gray-900 transition-colors duration-300">Clinical Research</h3>
               <p className="text-gray-700 text-base sm:text-lg group-hover:text-gray-800 transition-colors duration-300">
-                Improved athletic performance via equipment optimization
+                Complete human physiological research platform, enabling rapid and frugal hypotheses generation and testing.
+              </p>
+            </div>
+            
+            {/* Aerospace */}
+            <div className="text-center scroll-slide-right animation-delay-600 hover:scale-105 transition-all duration-500 group relative">
+              <div className="relative">
+                <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden bg-white/50 flex items-center justify-center relative z-10 border-2 border-transparent group-hover:border-gray-400 transition-colors duration-300">
+                  <img 
+                    src="/Aerospace.jpg" 
+                    alt="Aerospace" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+              
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 group-hover:text-gray-900 transition-colors duration-300">Aerospace</h3>
+              <p className="text-gray-700 text-base sm:text-lg group-hover:text-gray-800 transition-colors duration-300">
+                Our virtual physiological human unlocks countless new avenues for human space research, cutting time and cost for testing, therapeutics, and improved astronaut outcomes.
               </p>
             </div>
           </div>

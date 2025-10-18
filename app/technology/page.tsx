@@ -133,10 +133,10 @@ export default function Technology() {
           </h1>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
             <LiquidButton variant="technology" size="sm">
-              Progress Update
+            Machine Learning
             </LiquidButton>
             <LiquidButton variant="technology" size="sm">
-              Neuroscience
+            Human Physiology
             </LiquidButton>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
@@ -276,7 +276,7 @@ export default function Technology() {
                     The Road Ahead
                   </h3>
                   <p className="text-gray-700 leading-relaxed text-lg">
-                    Our initial deployments focus on critical care, where decisions are most time-sensitive and data-rich. From there, the Somnium Twin Engine will extend to cardiology, oncology, longevity, and preventative health — building the first universal and wholistic framework for human digital twins.
+                   Our initial deployments focus on critical care, where decisions are most time-sensitive and data-rich. From there, the Somnium Twin Engine will extend to cardiology, oncology, longevity, and aerospace medicine — building the first universal and wholistic framework for human digital twins.
                   </p>
                 </div>
 

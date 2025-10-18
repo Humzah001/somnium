@@ -181,11 +181,11 @@ export default function FounderLetter() {
                 {/* Introduction */}
                 <div className="mb-16">
                   <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                    I've spent my career as an intensive care physician watching humans oscillate between life and death, minute by minute. We have extraordinary tools and machines — ventilators, monitors, predictive scores — yet we still make decisions by intuition. We don't truly see how one change ripples through the body until it's too late.
+                  I've spent my career as an intensive care physician watching humans oscillate between life and death, minute by minute. We have extraordinary tools and machines — ventilators, monitors, predictive scores — yet the human brain is not cognitively capable of processing such an abundance of data within an epidemiological context. COVID-19 made this painfully clear, where I was managing more than 50 critically-ill patients in one day. Humans are simply not cognitively equipped to deal with the rich sources of diverse medical data, put it into an epidemiological perspective, and figure out which potential interventions will have the highest probability of success. We don't truly see how one change ripples through the body until it's too late.  
                   </p>
                   <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                    For decades, engineers have used digital twins to model aircraft and spacecraft — running millions of simulations before a single human ever boards.
-                  </p>
+                  The Somnium Twin Engine is our vision to build that for the human body — a closed-loop AI–physiology system that learns, explains, and experiments safely. It doesn't replace doctors. It gives them foresight and boundless options.
+                   </p>
                   <p className="text-gray-700 leading-relaxed text-lg mb-8">
                     Medicine deserves the same precision.
                   </p>

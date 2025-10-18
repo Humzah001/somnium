@@ -103,8 +103,7 @@ export default function Footer({
               />
             </div>
             <span className="text-sm sm:text-lg font-semibold font-exo2">
-              <span className="hidden sm:inline">Somnium Biolabs</span>
-              <span className="sm:hidden">Somnium</span>
+              Somnium Biolabs
             </span>
           </div>
           
