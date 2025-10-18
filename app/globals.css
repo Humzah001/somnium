@@ -192,12 +192,12 @@ html {
   background: linear-gradient(135deg, rgba(158, 35, 6, 0.1) 0%, rgba(158, 35, 6, 0.2) 100%);
 }
 
-/* Tech Section Sliding Animation */
-.tech-sliding-wrapper {
+/* Vision Section Sliding Animation */
+.vision-sliding-wrapper {
   animation: slideLeftSeamless 20s linear infinite;
 }
 
-.tech-cards-container:hover .tech-sliding-wrapper {
+.vision-cards-container:hover .vision-sliding-wrapper {
   animation-play-state: paused;
 }
 
@@ -220,11 +220,11 @@ html {
   }
 }
 
-.tech-card-hover {
+.vision-card-hover {
   transition: transform 0.3s ease;
 }
 
-.tech-card-hover:hover {
+.vision-card-hover:hover {
   transform: scale(1.1);
 }
 

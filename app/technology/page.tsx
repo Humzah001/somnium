@@ -187,7 +187,7 @@ export default function Technology() {
                   </p>
                   <h2 className="text-4xl font-bold text-gray-900 mb-8">
                     How it works:
-                  </h2>
+              </h2>
                 </div>
 
                 {/* Unified Patient Twin */}
@@ -225,7 +225,7 @@ export default function Technology() {
                     Dozens of specialized AI systems — for diagnostics, organ function, treatment planning, and prediction — collaborate through STE's innovative platform. Instead of dozens of isolated snapshots, clinicians see a single, evolving portrait: a whole-patient context that supports real-time decision-making.
                   </p>
                 </div>
-
+                
                 {/* Simulation and Clinical Reasoning */}
                 <div 
                   ref={(el) => { sectionsRef.current['simulation-reasoning'] = el; }}
@@ -260,7 +260,7 @@ export default function Technology() {
                   <p className="text-gray-700 leading-relaxed text-lg">
                     STE solves one of the most important aspects of healthcare: trust. STE is designed from the ground up to meet emerging regulatory standards for responsible AI in medicine, and ensure we enhance the trust that exists between patients, healthcare workers, and the hospital systems.
                   </p>
-                </div>
+              </div>
 
                 {/* The Road Ahead */}
                 <div 
@@ -272,9 +272,9 @@ export default function Technology() {
                   }`}
                   id="road-ahead"
                 >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     The Road Ahead
-                  </h3>
+              </h3>
                   <p className="text-gray-700 leading-relaxed text-lg">
                    Our initial deployments focus on critical care, where decisions are most time-sensitive and data-rich. From there, the Somnium Twin Engine will extend to cardiology, oncology, longevity, and aerospace medicine — building the first universal and wholistic framework for human digital twins.
                   </p>

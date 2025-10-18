@@ -13,7 +13,10 @@ export const metadata: Metadata = {
   title: "Somnium Biolabs",
   description: "Innovative technology solutions for the future",
   icons: {
-    icon: '/favicon-16x16.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: '/favicon.ico',
   },
 };
 
