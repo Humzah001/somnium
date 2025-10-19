@@ -192,6 +192,39 @@ html {
   background: linear-gradient(135deg, rgba(158, 35, 6, 0.1) 0%, rgba(158, 35, 6, 0.2) 100%);
 }
 
+/* Tech Section Custom Colors */
+.tech-blue:hover {
+  color: #5378B9 !important;
+}
+
+.tech-purple:hover {
+  color: #8B5CF6 !important;
+}
+
+.tech-green:hover {
+  color: #10B981 !important;
+}
+
+.tech-orange:hover {
+  color: #F59E0B !important;
+}
+
+.tech-bg-blue {
+  background: linear-gradient(135deg, rgba(83, 120, 185, 0.1) 0%, rgba(83, 120, 185, 0.2) 100%);
+}
+
+.tech-bg-purple {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.2) 100%);
+}
+
+.tech-bg-green {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+}
+
+.tech-bg-orange {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.2) 100%);
+}
+
 /* Vision Section Sliding Animation */
 .vision-sliding-wrapper {
   animation: slideLeftSeamless 20s linear infinite;
@@ -319,4 +352,11 @@ html {
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+}
+
+/* Rainbow gradient animation */
+@keyframes rainbow-gradient {
+  to {
+    background-position: 200% center;
+  }
 }

@@ -212,8 +212,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
-            The world's first virtual physiological human on the Somnium Twin Engine™ unlocks human life without limits for Earth and Beyond.
-           </h2>
+            The world's first virtual physiological human on the Somnium Twin Engine™ unlocks human life without limits, for Earth and Beyond.
+            </h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
@@ -267,12 +267,15 @@ export default function Home() {
               
               <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 group-hover:text-gray-700 transition-colors duration-300">Aerospace</h3>
               <p className="text-gray-700 text-base sm:text-lg group-hover:text-gray-700 transition-colors duration-300">
-                Our virtual physiological human unlocks countless new avenues for human space research, cutting time and cost for testing, therapeutics, and improved astronaut outcomes.
-              </p>
+              Unlock countless new avenues for human space research, cutting time and cost for testing, therapeutics, and improving astronaut outcomes
+                </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="border-t border-gray-400"></div>
 
       {/* A Word on The Tech Section */}
       <section 
@@ -294,48 +297,60 @@ export default function Home() {
           {/* Static Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              {/* Animated Background */}
+              <div className="absolute inset-0 tech-bg-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center relative z-10">
-                <svg className="w-12 h-12 text-gray-700 group-hover:text-gray-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 text-gray-700 tech-blue transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-700 mb-3 group-hover:text-gray-700 transition-colors duration-300">Foundation Models</h3>
+              <h3 className="text-lg font-bold text-gray-700 mb-3 tech-blue transition-colors duration-300">Foundation Models</h3>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                 Advanced AI models trained on massive human physiology datasets, providing deep understanding and physiological grounding to siloed medical data.
               </p>
             </div>
 
             <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              {/* Animated Background */}
+              <div className="absolute inset-0 tech-bg-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center relative z-10">
-                <svg className="w-12 h-12 text-gray-700 group-hover:text-gray-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 text-gray-700 tech-purple transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-700 mb-3 group-hover:text-gray-700 transition-colors duration-300">Multi-omics Integration</h3>
+              <h3 className="text-lg font-bold text-gray-700 mb-3 tech-purple transition-colors duration-300">Multi-omics Integration</h3>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                 Seamlessly integrate genomic, transcriptomic, proteomic, and metabolomic data for comprehensive personalized patient analyses.
               </p>
             </div>
 
             <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              {/* Animated Background */}
+              <div className="absolute inset-0 tech-bg-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center relative z-10">
-                <svg className="w-12 h-12 text-gray-700 group-hover:text-gray-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 text-gray-700 tech-green transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-700 mb-3 group-hover:text-gray-700 transition-colors duration-300">Real-time Processing</h3>
+              <h3 className="text-lg font-bold text-gray-700 mb-3 tech-green transition-colors duration-300">Real-time Processing</h3>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                 Lightning-fast analysis capabilities that scale from single samples to population-level studies.
               </p>
             </div>
 
             <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              {/* Animated Background */}
+              <div className="absolute inset-0 tech-bg-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center relative z-10">
-                <svg className="w-12 h-12 text-gray-700 group-hover:text-gray-700 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 text-gray-700 tech-orange transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-gray-700 mb-3 group-hover:text-gray-700 transition-colors duration-300">Precision Predictions</h3>
+              <h3 className="text-lg font-bold text-gray-700 mb-3 tech-orange transition-colors duration-300">Precision Predictions</h3>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                 High-accuracy outcome predictions and research simulations with quantified uncertainty.
               </p>
@@ -343,6 +358,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="border-t border-gray-400"></div>
 
       {/* Design Optimization Section */}
       <section 
@@ -469,6 +487,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="border-t border-gray-400"></div>
 
       {/* Our Vision Section */}
       <section 
@@ -614,7 +635,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-6">
             <div className="bg-gradient-to-r from-gray-600 to-gray-700 rounded-xl p-6 sm:p-8 text-white max-w-4xl mx-auto">
               <p className="font-bold text-base sm:text-lg lg:text-xl leading-relaxed">
               Somnium Biolabs unites foundational models, real-time data, and compute power into the next generation operating system for human physiology.
@@ -627,7 +648,7 @@ export default function Home() {
       {/* Contact Section */}
        <div id="contact" className="p-6 sm:p-8 text-center  sm:mx-0 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
          <h6 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4 animate-fadeInUp">
-           Have something to say?
+           How can we help?
          </h6>
          <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base animate-fadeInUp animation-delay-200">
            Email us at <a href="mailto:contact@somniumbio.com" className="text-blue-600 hover:text-blue-700 font-medium break-all sm:break-normal">contact@somniumbio.com</a>

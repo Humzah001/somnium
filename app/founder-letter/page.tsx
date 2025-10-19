@@ -138,7 +138,7 @@ export default function FounderLetter() {
             </LiquidButton>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-          Every patient in the ICU is a mystery to solve in real time.
+          Instead of numerous of isolated snapshots, clinicians see a single, evolving portrait: a whole-patient context that supports real-time decision-making.
           </p>
         </div>
       </section>
@@ -181,16 +181,7 @@ export default function FounderLetter() {
                 {/* Introduction */}
                 <div className="mb-16">
                   <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                  I've spent my career as an intensive care physician watching humans oscillate between life and death, minute by minute. We have extraordinary tools and machines — ventilators, monitors, predictive scores — yet the human brain is not cognitively capable of processing such an abundance of data within an epidemiological context. COVID-19 made this painfully clear, where I was managing more than 50 critically-ill patients in one day. Humans are simply not cognitively equipped to deal with the rich sources of diverse medical data, put it into an epidemiological perspective, and figure out which potential interventions will have the highest probability of success. We don't truly see how one change ripples through the body until it's too late.  
-                  </p>
-                  <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                  The Somnium Twin Engine is our vision to build that for the human body — a closed-loop AI–physiology system that learns, explains, and experiments safely. It doesn't replace doctors. It gives them foresight and boundless options.
-                   </p>
-                  <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                    Medicine deserves the same precision.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                    The Somnium Twin Engine is our attempt to build that for the human body — an AI–physiology system that learns, explains, and experiments safely. It doesn't replace doctors. It gives them foresight and boundless options.
+                  Digital Twin technologies has been used for years in manufacturing, aerospace, supply chain, and many other fields. Nowadays, no human would step onto a plane without countless safety simulations in place. Medicine deserves the same precision.
                   </p>
                 </div>
 

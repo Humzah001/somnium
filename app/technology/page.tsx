@@ -129,7 +129,7 @@ export default function Technology() {
         }}></div>
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 mt-20">
-            Inside the Somnium Twin Engine
+            Inside the Somnium Twin Engine™
           </h1>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
             <LiquidButton variant="technology" size="sm">
@@ -140,8 +140,8 @@ export default function Technology() {
             </LiquidButton>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            A secure, standards-based AI platform that connects all patient data into grounded clinical reality to provide a single, adaptive simulation environment.
-          </p>
+          Instead of numerous of isolated snapshots, clinicians see a single, evolving portrait: a whole-patient context that supports real-time decision-making.
+            </p>
         </div>
       </section>
 
@@ -183,11 +183,8 @@ export default function Technology() {
                 {/* Introduction */}
                 <div className="mb-16">
                   <p className="text-gray-700 leading-relaxed text-lg mb-8">
-                    Our proprietary Somnium Twin Engine represents a paradigm shift on how medicine is practiced. Through the convergence of disruptive technologies, the Twin Engine provides a platform for comprehensive and personalized digital twins, unlocking magnitudes of new research and therapies for patients. The timeline and exorbitant cost required to go from hypothesis generation to bedside clinical benefit is reduced to a fraction, enabling a new generation of healthier patients and more cost-efficient healthcare systems.
+                    Our proprietary Somnium Twin Engine™ represents a paradigm shift on how medicine is practiced. Through the convergence of disruptive technologies, the Twin Engine provides a platform for comprehensive and personalized digital twins, unlocking magnitudes of new research and therapies for patients. The timeline and exorbitant cost required to go from hypothesis generation to bedside clinical benefit is reduced to a fraction, enabling a new generation of healthier patients and more cost-efficient healthcare systems.
                   </p>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                    How it works:
-              </h2>
                 </div>
 
                 {/* Unified Patient Twin */}
