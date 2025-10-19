@@ -495,7 +495,7 @@ export default function Home() {
       <section 
         ref={(el) => { sectionRefs.current['vision'] = el; }}
         id="vision"
-        className="relative py-20 lg:py-32"
+        className="relative py-20 "
         style={{ backgroundColor: '#F8F2EB' }}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -635,7 +635,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="text-center mt-6">
+          <div className="text-center mt-10">
             <div className="bg-gradient-to-r from-gray-600 to-gray-700 rounded-xl p-6 sm:p-8 text-white max-w-4xl mx-auto">
               <p className="font-bold text-base sm:text-lg lg:text-xl leading-relaxed">
               Somnium Biolabs unites foundational models, real-time data, and compute power into the next generation operating system for human physiology.
