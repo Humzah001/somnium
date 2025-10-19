@@ -644,6 +644,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* Section Divider */}
+      <div className="border-t border-gray-400"></div>
 
       {/* Contact Section */}
        <div id="contact" className="p-6 sm:p-8 text-center  sm:mx-0 animate-fadeIn" style={{ backgroundColor: '#F8F2EB' }}>
