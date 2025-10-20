@@ -212,7 +212,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fadeInUp">
-            The world's first virtual physiological human on the Somnium Twin Engine™ unlocks human life without limits, for Earth and Beyond.
+            The world's first virtual physiological human unlocks human life without limits, for Earth and Beyond.
             </h2>
           </div>
           
@@ -249,7 +249,7 @@ export default function Home() {
               
               <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4 group-hover:text-gray-700 transition-colors duration-300">Clinical Research</h3>
               <p className="text-gray-700 text-base sm:text-lg group-hover:text-gray-700 transition-colors duration-300">
-                Complete human physiological research platform, enabling rapid and frugal hypotheses generation and testing.
+              Complete human physiological research platform, enabling rapid and cost-effective hypotheses generation and testing
               </p>
             </div>
             
