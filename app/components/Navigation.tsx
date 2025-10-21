@@ -15,7 +15,7 @@ const Navigation = () => {
     // { name: 'White Paper I', href: '/white-paper' },
     { name: 'Technology', href: '/technology' },
     { name: 'Founder Letter', href: '/founder-letter' },
-    // { name: 'Problem Statement', href: '/problem-statement' },
+    { name: 'Clinical Reasoning', href: '/clinical-reasoning' },
   ];
 
   useEffect(() => {
