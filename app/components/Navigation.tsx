@@ -13,9 +13,9 @@ const Navigation = () => {
 
   const navItems = [
     // { name: 'White Paper I', href: '/white-paper' },
+    { name: 'Clinical Reasoning', href: '/clinical-reasoning' },
     { name: 'Technology', href: '/technology' },
     { name: 'Founder Letter', href: '/founder-letter' },
-    { name: 'Clinical Reasoning', href: '/clinical-reasoning' },
   ];
 
   useEffect(() => {

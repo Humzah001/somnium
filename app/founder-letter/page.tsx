@@ -138,8 +138,8 @@ export default function FounderLetter() {
             </LiquidButton>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-          Instead of numerous of isolated snapshots, clinicians see a single, evolving portrait: a whole-patient context that supports real-time decision-making.
-          </p>
+          Every ICU patient is a physiological mystery to solve
+         </p>
         </div>
       </section>
 

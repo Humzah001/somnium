@@ -152,10 +152,10 @@ export default function ProblemStatement() {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     The Problem
                   </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
+                  <p className="text-gray-700 leading-relaxed text-lg mb-4">
                     In today's healthcare AI landscape, many models generate predictions (e.g., risk of complication, probability of disease, etc.), but few truly reason like a clinician does: integrating multimodal data, understanding causality, simulating outcomes, and updating hypotheses over time. Clinical decision-making remains fragmented: siloed data from EHRs, imaging, genomics; disparate AI tools; limited interpretability; high cost of deployment; uncertain validation; and poor generalizability across populations. The result: slower diagnoses, sub-optimal treatment choices, wasted resources, and higher overall costs, with poorer patient outcomes.
                   </p>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed text-lg">
                     Real clinical intelligence requires context: how and why things happen inside the body, not just what correlates. Without reasoning, AI remains an assistant, not a real clinician.
                   </p>
                 </div>
@@ -173,10 +173,10 @@ export default function ProblemStatement() {
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">
                       Real-world grounding via the Virtual Physiological Human
                     </h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
+                    <p className="text-gray-700 leading-relaxed text-lg mb-4">
                       We built a physiology-first foundation that grounds every decision in biological reality.
                     </p>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-700 leading-relaxed text-lg">
                       Our Somnium Twin Engine fuses real-world data, digital twins, and generative simulation — enabling models to think causally, not statistically.
                     </p>
                   </div>
@@ -185,7 +185,7 @@ export default function ProblemStatement() {
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">
                       New AI infrastructure
                     </h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
+                    <p className="text-gray-700 leading-relaxed text-lg mb-4">
                       <strong>Vendor-agnostic architecture:</strong> Our API-first infrastructure allows plug-in of existing specialized AI models (imaging, pathology, cardiology) into the Digital Twin environment where they gain context, benefited by our physiological and reasoning layer.
                     </p>
                     
@@ -226,7 +226,7 @@ export default function ProblemStatement() {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     Towards an AI Clinician
                   </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
+                  <p className="text-gray-700 leading-relaxed text-lg mb-4">
                     We are building a future where we combine the strengths of human clinicians with the power of AI. Any healthcare provider can invoke a simple Clinical Reasoning API and access a digital colleague — an expert AI clinician that reasons with you, not just for you.
                   </p>
                   
@@ -238,7 +238,7 @@ export default function ProblemStatement() {
                     </ul>
                   </div>
                   
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed text-lg">
                     Ultimately, a world where clinical reasoning is democratized, cost is no longer a barrier, and every patient has access to smarter, safer, more personalized care.
                   </p>
                 </div>
@@ -251,10 +251,10 @@ export default function ProblemStatement() {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     Get Started
                   </h2>
-                  <p className="text-gray-700 leading-relaxed mb-4">
+                  <p className="text-gray-700 leading-relaxed text-lg mb-4">
                     Ready to transform how your organization thinks and practices medicine? Contact us to explore our Clinical Reasoning API, pilot engagements, and transformative workflows: <a href="mailto:contact@somniumbio.com" className="text-blue-600 hover:text-blue-700 font-medium underline">contact@somniumbio.com</a>.
                   </p>
-                  <p className="text-gray-700 leading-relaxed font-semibold">
+                  <p className="text-gray-700 leading-relaxed text-lg font-semibold">
                     Let's build the clinician of the future — today.
                   </p>
                 </div>
